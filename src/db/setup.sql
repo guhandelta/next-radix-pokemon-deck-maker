@@ -3,7 +3,7 @@ DROP TABLE IF EXISTS decks;
 
 CREATE TABLE decks (
     id INTEGER PRIMARY KEY,
-    userName TEXT,
+    name TEXT,
     -- use userId from Authkit to the index into the list of decks
     userid TEXT
 );
