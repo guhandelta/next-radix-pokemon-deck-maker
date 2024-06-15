@@ -12,6 +12,6 @@ CREATE TABLE cards (
     id INTEGER PRIMARY KEY,
     deckId INTEGER,
     pokemonId INTEGER,
-    userName TEXT,
-    imageUrl TEXT
+    name TEXT,
+    image TEXT
 );
