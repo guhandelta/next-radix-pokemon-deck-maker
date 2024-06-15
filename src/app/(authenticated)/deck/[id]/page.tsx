@@ -1,9 +1,10 @@
+import React from 'react'
 import { Heading } from "@radix-ui/themes";
 import { getUser } from "@workos-inc/authkit-nextjs";
 import { notFound } from "next/navigation";
 
 import { PokemonGrid } from "@/components";
-import SearchList from "./search-list";
+import Search from "./search-list";
 
 import { getDeck } from "@/db";
 import { getFullPokemon } from "@/pokemon";
@@ -11,6 +12,7 @@ import { getFullPokemon } from "@/pokemon";
 export default async function DeckPage({ params }: { params: { id: string } }) {
     const { user } = await getUser();
 
+    // Get the top 10 pokemon
     const pokemon = await getFullPokemon(10, "");
 
     const deck = await getDeck(+params.id);
@@ -27,7 +29,7 @@ export default async function DeckPage({ params }: { params: { id: string } }) {
 
             <PokemonGrid pokemon={deck.cards} showRemove />
 
-            <SearchList
+            <Search
                 pokemon={pokemon}
                 existingPokemon={deck.cards.map((card) => card.pokemonId)}
             />
